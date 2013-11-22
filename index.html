@@ -5,6 +5,33 @@
     <title>INGI Course Program Application</title>
     <meta name="description" content="Test">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="http://platform.twitter.com/widgets.js"></script>
+    <script>
+      $(function() {
+        $( "#catalog" ).accordion();
+        $( "#catalog li" ).draggable({
+          appendTo: "body",
+          helper: "clone"
+        });
+        $( "#cart ol" ).droppable({
+          activeClass: "ui-state-default",
+          hoverClass: "ui-state-hover",
+          accept: ":not(.ui-sortable-helper)",
+          drop: function( event, ui ) {
+            $( this ).find( ".placeholder" ).remove();
+            $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+            }
+          }).sortable({
+            items: "li:not(.placeholder)",
+            sort: function() {
+              $( this ).removeClass( "ui-state-default" );
+            }
+          });
+      });
+    </script>
   </head>
   <body>
     <link href="starter-template.css" rel="stylesheet">
@@ -13,6 +40,7 @@
         padding-top: 50px;
         padding-bottom: 50px;
       }
+     
     </style>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -34,105 +62,48 @@
             <li><a href="#Advices">Advices</a></li>
             <li><a href="#Comments">Comments</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="starter-template">
-        <h1>First Quadrimester</H1>
-        <div class="row">
-          <div class="col-sm6 col-md-2">
-            <a href="#" class="thumbnail">
-              <img src="img/course.png" data-src="holder.js/50%x90" alt="LINGI2132" style="height: 90px; width: 50%; display: block;">
-            </a>
+      <div id="courses">
+        <h1 class="ui-widget-header">Courses</h1>
+        <div id="catalog">
+          <h2><a href="#">Tronc Comun</a></h2>
+          <div>
+            <ul>
+              <li>LINGI2132</li>
+              <li>LINGI4242</li>
+              <li>LINMA2222</li>
+            </ul>
           </div>
-          <div class="col-sm6 col-md-2">
-            <a href="#" class="thumbnail">
-              <img src="img/course.png" data-src="holder.js/50%x90" alt="LINGI2261" style="height: 90px; width: 50%; display: block;">
-            </a>
-          </div>
-          <div class="col-sm6 col-md-2">
-            <a href="#" class="thumbnail">
-              <img src="img/course.png" data-src="holder.js/50%x90" alt="LINGI2349" style="height: 90px; width: 50%; display: block;">
-            </a>
-          </div>
-
         </div>
-
+      </div>
+      <div id="cart">
+      <h1 class="ui-widget-header">Quadrimestre</h1>
+        <div class="ui-widget-content">
+          <ol>
+            <li class="placeholder">Add your courses here</li>
+          </ol>
+        </div>
       </div>
 
-        <div class="alert alert-danger alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong>Warning!</strong> Best check yo self, you're not looking too good.
-        </div>
-
-        <div class="alert alert-warning alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong>Warning!</strong> blabla.
-        </div>
-        <div class="alert alert-info alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <strong>Warning</strong> blabla.
-        </div>
-        <div class="col-md-1">
-          <div class="thumbnail">
-            <img alt="blah" style="height: 100px;"></img>
-          </div>
-        </div>
-
-       <div class=" col-md-10">
-          <div class="thumbnail">
-            <img alt="blah" data-src="holder.js/900x100" style="width: 900px; height: 100px;"></img>
-          </div>
-        </div>
-
-        <div class="col-md-1">
-          <div class="thumbnail">
-            <img alt="blah" style="height: 100px;"></img>
-          </div>
-        </div>
-        <div class="col-md-1">
-          <div class="thumbnail">
-            <img alt="blah" style="height: 100px;"></img>
-          </div>
-        </div>
-
-       <div class=" col-md-10">
-          <div class="thumbnail">
-            <img alt="blah" data-src="holder.js/900x100" style="width: 900px; height: 100px;"></img>
-          </div>
-        </div>
-
-        <div class="col-md-1">
-          <div class="thumbnail">
-            <img alt="blah" style="height: 100px;"></img>
-          </div>
-        </div>
 
 
-      </div>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Warning!</strong> Best check yo self, you're not looking too good.
     </div>
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-      <div class="row">
-        <div class="col-md-1">
-          <span class="glyphicon glyphicon-backward">Previous</span>
-        </div>
-        <div class="col-md-10">
-          <img alt="blah">
-        </div>
-        <div class="col-md-1">
-          <span class="glyphicon glyphicon-forward">Next</span>
-        </div>
 
-      </div>
+    <div class="alert alert-warning alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Warning!</strong> blabla.
+    </div>
 
-    </nav>
-
-
-  
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="http://platform.twitter.com/widgets.js"></script>
-  </body>
+    <div class="alert alert-info alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Warning</strong> blabla.
+    </div>        
+  </div>
+</body>
 </html>
