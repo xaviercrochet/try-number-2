@@ -5,24 +5,29 @@
     <title>INGI Course Program Application</title>
     <meta name="description" content="Test">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="http://platform.twitter.com/widgets.js"></script>
     <script>
+      
       $(function() {
         $( "#catalog" ).accordion();
         $( "#catalog li" ).draggable({
           appendTo: "body",
           helper: "clone"
         });
-        $( "#cart ol" ).droppable({
+        $( "#cart ul" ).droppable({
           activeClass: "ui-state-default",
           hoverClass: "ui-state-hover",
           accept: ":not(.ui-sortable-helper)",
           drop: function( event, ui ) {
             $( this ).find( ".placeholder" ).remove();
-            $( "<li></li>" ).text( ui.draggable.text() ).appendTo( this );
+            /*var string = "<li><span class=glyphicon glyphicon-book>";
+            string += ui.draggable.text();
+            string += "</li></span>";
+            string.appendTo(this);*/
+            $( "<li></li>" ).html("<span class=\"glyphicon glyphicon-book\">"+ui.draggable.text()+"</span>" ).appendTo( this );
+            
             }
           }).sortable({
             items: "li:not(.placeholder)",
@@ -38,7 +43,6 @@
     <style>
       body {
         padding-top: 50px;
-        padding-bottom: 50px;
       }
      
     </style>
@@ -72,9 +76,9 @@
           <h2><a href="#">Tronc Comun</a></h2>
           <div>
             <ul>
-              <li>LINGI2132</li>
-              <li>LINGI4242</li>
-              <li>LINMA2222</li>
+              <li><span class="glyphicon glyphicon-book"> LINGI2132</span></li>
+              <li><span class="glyphicon glyphicon-book"> LINGI4242</span></li>
+              <li><span class="glyphicon glyphicon-book"> LINMA1661</span></li>
             </ul>
           </div>
         </div>
@@ -82,15 +86,15 @@
       <div id="cart">
       <h1 class="ui-widget-header">Quadrimestre</h1>
         <div class="ui-widget-content">
-          <ol>
-            <li class="placeholder">Add your courses here</li>
-          </ol>
+          <ul>
+            <li class="placeholder"><span class="glyphicon glyphicon-book"> Add your courses here</span></li>
+          </ul>
         </div>
       </div>
 
 
 
-    <div class="alert alert-danger alert-dismissable">
+    <!--<div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Warning!</strong> Best check yo self, you're not looking too good.
     </div>
@@ -104,6 +108,6 @@
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Warning</strong> blabla.
     </div>        
-  </div>
+  </div>-->
 </body>
 </html>
