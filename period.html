@@ -22,10 +22,6 @@
           accept: ":not(.ui-sortable-helper)",
           drop: function( event, ui ) {
             $( this ).find( ".placeholder" ).remove();
-            /*var string = "<li><span class=glyphicon glyphicon-book>";
-            string += ui.draggable.text();
-            string += "</li></span>";
-            string.appendTo(this);*/
             $( "<li></li>" ).html("<span class=\"glyphicon glyphicon-book\">"+ui.draggable.text()+"</span>" ).appendTo( this );
             
             }
@@ -44,7 +40,6 @@
       body {
         padding-top: 50px;
       }
-     
     </style>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -56,15 +51,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="landing_page.html">Project name</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Period</a></li>
-            <li><a href="#Blocs">Blocs</a></li>
-            <li><a href="#Statut">Statut</a></li>
-            <li><a href="#Advices">Advices</a></li>
-            <li><a href="#Comments">Comments</a></li>
+            <li><a href="bloc.html">Blocs</a></li>
+            <li><a href="statut.html">Statut</a></li>
+            <li><a href="advice.html">Advices</a></li>
+            <li><a href="comment.html">Comments</a></li>
           </ul>
         </div>
       </div>
@@ -75,7 +70,7 @@
         <div id="catalog">
           <h2><a href="#">Tronc Comun</a></h2>
           <div>
-            <ul>
+            <ul class="list-group">
               <li><span class="glyphicon glyphicon-book"> LINGI2132</span></li>
               <li><span class="glyphicon glyphicon-book"> LINGI4242</span></li>
               <li><span class="glyphicon glyphicon-book"> LINMA1661</span></li>
@@ -86,7 +81,7 @@
       <div id="cart">
       <h1 class="ui-widget-header">Quadrimestre</h1>
         <div class="ui-widget-content">
-          <ul>
+          <ul class="list-group">
             <li class="placeholder"><span class="glyphicon glyphicon-book"> Add your courses here</span></li>
           </ul>
         </div>
@@ -94,20 +89,20 @@
 
 
 
-    <!--<div class="alert alert-danger alert-dismissable">
+   <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Warning!</strong> Best check yo self, you're not looking too good.
+      <strong>Warning!</strong> This is very serious !
     </div>
 
     <div class="alert alert-warning alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Warning!</strong> blabla.
+      <strong>Warning!</strong> This is quite serious !
     </div>
 
     <div class="alert alert-info alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Warning</strong> blabla.
+      <strong>Warning</strong> This is just an advice !
     </div>        
-  </div>-->
+  </div>
 </body>
 </html>
